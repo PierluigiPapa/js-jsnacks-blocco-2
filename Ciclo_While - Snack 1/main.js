@@ -16,3 +16,10 @@ while (calcolaSomma(numeroArray) < 50) {
 
 // Stampa l'array risultante
 console.log("Array finale:", numeroArray);
+
+// Funzione per calcolare la somma di un array di numeri
+function calcolaSomma(array) {
+    return array.reduce(function (acc, numero) {
+      return acc + numero;
+    }, 0);
+  }
