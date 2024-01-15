@@ -1,25 +1,26 @@
 // Variabile per creare un numero vuoto
 let numeroArray = [];
 
+let somma = 0;
+
+let i= 0;
+
 // Ciclo per chiedere all'utente di inserire un numero affinché la somma sia minore di 50
-while (calcolaSomma(numeroArray) < 50) {
-  let numeroUtente = parseInt(prompt("Inserisci un numero:"));
+while (somma < 50) {
+  let numero = parseInt(prompt("Inserisci un numero:"));
 
   // SE il numero inserito dall'utente è valido
-  if (!isNaN(numeroUtente)) {
-    numeroArray.push(numeroUtente);
+  if (numero > (50 - somma)) {
+    alert `(Puoi ancora inserire come numero massimo: ${50-somma})`
     //ALTRIMENTI obbliga l'utente di inserire un numero valido
   } else {
-    alert("Inserisci un numero valido.");
+    numeroArray.push (numero)
+
+    somma += numeroArray[i]
+
+    i++
   }
 }
 
 // Stampa l'array risultante
 console.log("Array finale:", numeroArray);
-
-// Funzione per calcolare la somma di un array di numeri
-function calcolaSomma(array) {
-    return array.reduce(function (acc, numero) {
-      return acc + numero;
-    }, 0);
-  }

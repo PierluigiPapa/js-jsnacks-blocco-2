@@ -1,22 +1,27 @@
-// Variabile per tenere il conto dei tentativi fatti
-let tentativi = 0;
+//Funzione per creare il numero random
+function RandomNumber (min, max) {
+    return Math.floor (Math.random()*(max-min + 1) + min)
+}
+
+//Variabile per il numero random
+let randomNum = RandomNumber (1,100)
+
+//Variabile per inserire il numero dell'utente
+let userNum = 0
 
 // Ciclo per indovinare il numero dell'utente 
-while (true) {
-    // Costante per chiedere il numero all'utente
-    const tentativoUtente = parseInt(prompt("Indovina il numero tra 1 e 100"));
-
-    // Istruzione per incrementare il numero dei tentativi
-    tentativi++;
+while (userNum !== randomNum) {
+    userNum = parseInt(prompt("Indovina il numero tra 1 e 100"));
 
     // SE l'utente indovina il numero, fine del gioco
-    if (tentativoUtente === numeroCasuale) {
-        alert(`Complimenti! Hai indovinato il numero in ${tentativi} tentativi.`);
-        break; 
+    if (userNum > randomNum) {
+        console.log ('Il numero è troppo alto')
+        alert ('Il numero è alto. Prova di nuovo') 
         // ALTRIMENTI l'utente riprova
-    } else if (tentativoUtente > numeroCasuale) {
-        alert("Il numero è troppo alto. Prova di nuovo!");
+    } else if (userNum < randomNum) {
+        console.log ('Il numero è troppo basso')
+        alert("Il numero è basso. Prova di nuovo!");
     } else {
-        alert("Il numero è troppo basso. Prova di nuovo!");
+        console.log ('Hai indovinato il numero');
     }
 }
